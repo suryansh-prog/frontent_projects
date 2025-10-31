@@ -1,45 +1,152 @@
-/* ...existing code... */
-*{
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html, body {
   height: 100%;
   width: 100%;
-  margin: 0; /* remove default body margin */
+  margin: 0;
 }
+
+/* ========================================
+   MAIN APP CONTAINER
+   ======================================== */
 .App {
   width: 100vw;
-  height: 100vh;   /* ✅ Use 100vh instead of 100% for full screen height */
+  min-height: 100vh;
   background-color: grey;
   color: white;
- 
-}
-.cnt{
-  padding-top: 20%;
-  padding-left: 40%;
-}
-.box{
-  width: 30vw;
-  height: 20vh;
-  /* background-color: burlywood; */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-left: 32%;
-  margin-top: 25px;
-  gap: 30px;              /* spacing between buttons */
-  padding: 2rem;
+  padding: 40px 20px;
+}
+
+/* ========================================
+   COUNTER HEADING
+   ======================================== */
+.cnt {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ========================================
+   BUTTON CONTAINER
+   ======================================== */
+.box {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
   border-radius: 10px;
-  font-size: 20px;
+  margin-bottom: 20px;
 }
-.box button{
-  margin: 10px;
-  padding: 10px;
-}
-.box button:hover{
+
+/* ========================================
+   BUTTONS - BASE STYLES
+   ======================================== */
+.box button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  background-color: #4a90e2;
+  color: white;
+  min-width: 120px;
+}
+
+.box button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   BUTTONS - SPECIFIC STYLES
+   ======================================== */
+/* Increment button - Green */
+.box .incre {
+  background-color: #4caf50;
+}
+
+.box .incre:hover {
+  background-color: #45a049;
+}
+
+/* Decrement button - Red */
+.box .decre {
+  background-color: #f44336;
+}
+
+.box .decre:hover {
+  background-color: #da190b;
+}
+
+/* Save button - Blue (if used separately) */
+.sv {
+  padding: 15px 35px;
+  font-size: 21px;
+  border-radius: 8px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.sv:hover {
+  background-color: #0b7dda;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - TABLETS
+   ======================================== */
+@media (max-width: 768px) {
+  .cnt {
+    font-size: 2rem;
+  }
+  
+  .box {
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .box button {
+    font-size: 16px;
+    padding: 10px 20px;
+    min-width: 100px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE
+   ======================================== */
+@media (max-width: 480px) {
+  .cnt {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .box button {
+    width: 100%;
+    max-width: 250px;
+  }
 }

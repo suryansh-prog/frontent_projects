@@ -1,0 +1,170 @@
+/* ========================================
+   HISTORY CONTAINER - FIXED POSITION (NO LAYOUT SHIFT)
+   ======================================== */
+.historyContainer {
+  position: fixed; /* Fixed positioning - doesn't affect other elements */
+  top: 20px; /* Distance from top */
+  left: 20px; /* Distance from left edge */
+  width: 50vw;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1000; /* Above other content */
+}
+
+/* ========================================
+   HISTORY TOGGLE BUTTON
+   ======================================== */
+.historyToggleBtn {
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.historyToggleBtn:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   SCROLLABLE HISTORY SECTION
+   ======================================== */
+.historyDetail {
+  width: 100%;
+  max-height: 500px; /* Increased height for more data */
+  background-color: rgba(0, 0, 0, 0.9);
+  margin-top: 10px; /* Small gap below button */
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR STYLING
+   ======================================== */
+.historyDetail::-webkit-scrollbar {
+  width: 8px;
+}
+
+.historyDetail::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.historyDetail::-webkit-scrollbar-thumb {
+  background: #4a90e2;
+  border-radius: 10px;
+}
+
+.historyDetail::-webkit-scrollbar-thumb:hover {
+  background: #357abd;
+}
+
+/* ========================================
+   INDIVIDUAL HISTORY ITEMS
+   ======================================== */
+.historyItem {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+  transition: all 0.2s ease;
+}
+
+.historyItem:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.historyItem:last-child {
+  margin-bottom: 0;
+}
+
+/* History item text */
+.historyItem p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.historyItem p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #4a90e2;
+}
+
+/* ========================================
+   NO HISTORY MESSAGE
+   ======================================== */
+.historyDetail > p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  padding: 20px;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS (≤1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+  .historyContainer {
+    width: 60vw;
+    max-width: 450px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - SMALL TABLETS (≤768px)
+   ======================================== */
+@media (max-width: 768px) {
+  .historyContainer {
+    width: 70vw;
+    max-width: 400px;
+    left: 15px;
+  }
+  
+  .historyDetail {
+    max-height: 400px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (≤480px)
+   ======================================== */
+@media (max-width: 480px) {
+  .historyContainer {
+    width: 90vw;
+    min-width: unset;
+    max-width: unset;
+    left: 10px;
+    top: 15px;
+  }
+  
+  .historyDetail {
+    max-height: 350px;
+    padding: 12px;
+  }
+  
+  .historyItem {
+    padding: 10px 12px;
+  }
+  
+  .historyItem p {
+    font-size: 13px;
+  }
+  
+  .historyItem p:first-child {
+    font-size: 15px;
+  }
+}
